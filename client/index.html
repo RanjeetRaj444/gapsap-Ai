@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GapSap - Ask me</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="chat-bot_header">
+				<div class="chat-bot_logo-title">
+					<img src="assets/logo.png" />
+				</div>
+
+				<div class="chat-bot_title">GapSap</div>
+
+				<div title="Clear History" class="reset-chats">
+					<ion-icon name="refresh-circle"></ion-icon>
+				</div>
+			</div>
+
+			<div class="chat-bot_body">
+				<div class="chat-bot_home-content">
+					<div class="chat-bot_home-content_img">
+						<img src="assets/chatbot.gif" alt="" />
+					</div>
+					<h3 class="chat-bot_home-content_text">Start GapSap...</h3>
+				</div>
+			</div>
+
+			<div class="chat-bot_chat-box">
+				<div class="chat-form">
+					<form>
+						<textarea
+							name="prompt"
+							class="chart-input"
+							placeholder="Ask Me...!"
+						></textarea>
+						<button type="submit" class="chat-send">
+							<ion-icon name="send"></ion-icon>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
+	<script
+		type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+	></script>
+	<script
+		nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+	></script>
+
+	<script>
+		async function copyChat(element, id, copyId) {
+			const messageBody = document.getElementById(id).innerText;
+			if (messageBody.includes("...")) {
+				return;
+			}
+			const tooltiptexts = document.querySelectorAll(".tooltiptext");
+			try {
+				await navigator.clipboard.writeText(messageBody);
+
+				tooltiptexts.forEach((item) => {
+					if (item.id === copyId) {
+						item.innerText = "Copied";
+					} else {
+						item.innerText = "Copy";
+					}
+				});
+			} catch (err) {
+				console.error("Failed to copy: ", err);
+			}
+		}
+	</script>
+</html>
