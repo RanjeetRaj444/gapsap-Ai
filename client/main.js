@@ -30,7 +30,7 @@ function typeText(element, text) {
       chatContainer.scrollTop = chatContainer.scrollHeight;
       index++;
     } else {
-		clearInterval(interval);
+      clearInterval(interval);
     }
   }, 20);
 }
@@ -127,7 +127,7 @@ function clearHistory() {
 		Start GapSap...
 	</h3>
 </div>`;
-  chatContainer.innerHTML = gapsap;
+  chatContainer.innerHTML = "";
   hasChatStarted = false;
 }
 
