@@ -1,5 +1,6 @@
 // import userSVG from "./assets/user.svg";
 import aiSVG from "./assets/bot.svg";
+import chatbot from "./assets/chatbot.gif";
 
 let hasChatStarted = false;
 
@@ -121,13 +122,13 @@ const handleSubmit = async (e) => {
 function clearHistory() {
   const gapsap = `<div class="chat-bot_home-content">
 	<div class="chat-bot_home-content_img">
-		<img src="assets/chatbot.gif" alt="" />
+		<img src="${chatbot}" alt="" />
 	</div>
 	<h3 class="chat-bot_home-content_text">
 		Start GapSap...
 	</h3>
 </div>`;
-  chatContainer.innerHTML = "";
+  chatContainer.innerHTML = gapsap;
   hasChatStarted = false;
 }
 
